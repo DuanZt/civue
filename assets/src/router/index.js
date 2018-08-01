@@ -1,15 +1,66 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Error from '../components/404.vue'
+import Home from '@/pages/home/home.vue'
+import Category from '@/pages/category/category.vue'
+import Cart from '@/pages/cart/cart.vue'
+import My from '@/pages/my/my.vue'
+import List from '@/pages/list/list.vue'
+import Detail from '@/pages/detail/detail.vue'
+import Login from '@/pages/login/login.vue'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
+  linkActiveClass: 'active',
+  routes: [{
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/category',
+    name: 'Category',
+    component: Category
+  },
+  {
+    path: '/list/:id',
+    name: 'List',
+    component: List
+  },
+  {
+    path: '/detail/:id',
+    name: 'Detail',
+    component: Detail
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
+  },
+  {
+    path: '/my',
+    name: 'My',
+    component: My
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/404',
+    name: 'Error',
+    component: Error
+  },
+  {
+    path: '*',
+    redirect: '/404'
+  }
   ]
 })
