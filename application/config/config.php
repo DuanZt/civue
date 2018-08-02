@@ -24,21 +24,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
  */
 
-$base_url = 'http://localhost/civue/';
-
-switch ($_SERVER['HTTP_HOST']) {
-  case 'localhost':
-    $base_url = 'http://localhost/civue/';
-    break;
-  case '192.168.0.241':
-    $base_url = 'http://192.168.0.241/civue/';
-    break;
-  case 'production':
-    $base_url = '';
-    break;
-}
-
-$config['base_url'] = $base_url;
+ 
+$config['base_url'] = BASE_URL;
 
 /*
 |--------------------------------------------------------------------------

@@ -313,5 +313,24 @@ switch (ENVIRONMENT)
  * And away we go...
  */
 
+
+$servers = array(
+  'localhost'=>array(
+    'base_url' => 'http://localhost/civue/',
+    'db_password' => 'Dt337683'
+  ),
+  '192.168.0.241'=>array(
+    'base_url' => 'http://192.168.0.241/civue/',
+    'db_password' => ''
+  ),
+  'civue.com'=>array(
+    'base_url' => 'http://civue.com/civue/',
+    'db_password' => 'Dt337683'
+  )
+);
+
+define('BASE_URL', isset($servers[$_SERVER['HTTP_HOST']])?$servers[$_SERVER['HTTP_HOST']]['base_url']:'');
+define('DB_PASS', isset($servers[$_SERVER['HTTP_HOST']])?$servers[$_SERVER['HTTP_HOST']]['db_password']:'');
+
 require_once FCPATH.'vendor/autoload.php';
 require_once BASEPATH.'core/CodeIgniter.php';
