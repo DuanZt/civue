@@ -72,12 +72,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 $active_group = 'default';
 $query_builder = true;
+$db_password = '';
+switch (ENVIRONMENT) {
+  case 'dev-1':
+    $db_password = 'Dt337683';
+    break;
+  
+  case 'production':
+    $db_password = '';
+    break;
+}
 
 $db['default'] = array(
   'dsn' => '',
   'hostname' => 'localhost',
   'username' => 'root',
-  'password' => 'Dt337683',
+  'password' => $db_password,
   'database' => 'civue',
   'dbdriver' => 'mysqli',
   'dbprefix' => '',
