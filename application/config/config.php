@@ -23,7 +23,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
  */
-$config['base_url'] = 'http://localhost/civue/';
+
+$base_url = 'http://localhost/civue/';
+
+switch ($_SERVER['HTTP_HOST']) {
+  case 'localhost':
+    $base_url = 'http://localhost/civue/';
+    break;
+  case '192.168.0.241':
+    $base_url = 'http://192.168.0.241/civue/';
+    break;
+  case 'production':
+    $base_url = '';
+    break;
+}
+
+$config['base_url'] = $base_url;
 
 /*
 |--------------------------------------------------------------------------

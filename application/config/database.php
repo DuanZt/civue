@@ -73,8 +73,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = true;
 $db_password = '';
-switch (ENVIRONMENT) {
-  case 'dev-1':
+switch ($_SERVER['HTTP_HOST']) {
+  case 'localhost':
     $db_password = 'Dt337683';
     break;
   
