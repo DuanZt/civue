@@ -29,15 +29,13 @@ class User_model extends CI_Model
   {
     $this->db->where("email", $email);
     $this->db->where("active", 1);
-    $this->db->get("user");
-    $row = $query->row_array();
-
+    $row = $this->db->get("user")->row_array();
     if ($row) {
       $result = password_verify($pwd, $row['pwd']);
     } else {
       $result = false;
     }
-    return $result ? $result['id'] : false;
+    return $result ? $row['id'] : false;
   }
 
 }
