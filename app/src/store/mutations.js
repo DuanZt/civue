@@ -3,10 +3,10 @@ export default {
     // 变更状态
     state.count++
   },
-  setToken (state, token) {
-    state.token = token
+  setToken (state, flag) {
+    state.token = flag
   },
-  setReToken (state, token) {
-    state.reToken = token
+  setReToken (state, flag) {
+    state.reToken = flag
   }
 }

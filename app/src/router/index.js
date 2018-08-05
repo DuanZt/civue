@@ -18,7 +18,10 @@ export default new Router({
   {
     path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      auth: true // 这里设置，当前路由需要校验
+    }
   },
   {
     path: '/signup',

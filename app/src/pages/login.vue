@@ -55,7 +55,6 @@ export default {
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          console.log(this.user)
           this.login(this.user).then(() => {
             this.$router.push('/home')
           })

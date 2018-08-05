@@ -17,7 +17,7 @@ class User extends CI_Controller
 
   public function view($id)
   {
-    echo $id;
+    res(200, $id);
   }
 
   public function userInfo($id)

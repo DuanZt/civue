@@ -5,10 +5,16 @@
 </template>
 
 <script type="text/javascript">
-import { } from 'vuex'
+import req from '@/lib/req'
 
 export default {
-
+  created () {
+    req('get', 'user/view/2').then((data) => {
+      console.log(data, 'xxxxx')
+    }).catch((err) => {
+      console.log(err, 'xxxxx')
+    })
+  }
 }
 </script>
 <style lang="scss">

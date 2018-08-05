@@ -18,11 +18,11 @@ function res($stateCode, $results = '')
 function auth()
 {
   $CI = &get_instance();
-  $token = isset($_SERVER['Authorization']) ? $_SERVER['Authorization'] : '';
+  $token = isset($_SERVER['HTTP_X_TOKEN']) ? $_SERVER['HTTP_X_TOKEN'] : '';
   $data = $CI->token->authToken($token);
 
-  if (property_exists($data, 'data')) {
-    return $data->data;
+  if (isset($data['data'])) {
+    return $data['data'];
   } else {
     $CI->output->set_status_header(403);
     exit(0);

@@ -56,5 +56,5 @@ $route['translate_uri_dashes'] = false;
 $route['user/auth'] = 'auth/login';
 $route['user/add'] = 'auth/signup';
 
-$route['user/(:num)'] = 'user/view/$1';
+$route['user/view/(:num)'] = 'api/user/view/$1';
 

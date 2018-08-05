@@ -1,6 +1,11 @@
 import axios from 'axios'
 // import store from '../store'
 import config from '../config'
+import store from '@/store'
+import {
+  getToken
+} from './utils'
+
 import {
   Message
 } from 'element-ui'
@@ -8,6 +13,9 @@ import {
 // 设置api baseurl，上线的时候修改config.js , 使用proxyTable 只支持get跨域
 axios.defaults.baseURL = config.baseURL
 axios.interceptors.request.use(config => {
+  if (store.state.token) {
+    config.headers['x-token'] = getToken() // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
+  }
   return config
 }, err => {
   Message.error({
@@ -74,8 +82,6 @@ export default async function request (method, url, query, data, fileFlag) {
       }
     })
   }
-
-  console.log(axiosOpt)
 
   try {
     // 开始请求

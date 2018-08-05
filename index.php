@@ -308,6 +308,13 @@ define('DB_PASS', isset($servers[$_SERVER['HTTP_HOST']]) ? $servers[$_SERVER['HT
 
 header('Access-Control-Allow-Origin: *');
 header('Access-control-Allow-Methods:GET,POST,PUT,DELETE,OPTIONS');
+header('Access-Control-Allow-Headers: x-token');
+
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+  return 200;
+  exit;
+}
+
 
 require_once FCPATH . 'vendor/autoload.php';
 require_once BASEPATH . 'core/CodeIgniter.php';

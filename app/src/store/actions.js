@@ -1,4 +1,7 @@
 import req from '../lib/req'
+import {
+  setToken
+} from '../lib/utils'
 
 /* 异步操作 */
 export default {
@@ -15,6 +18,7 @@ export default {
         data,
         true
       ).then(data => {
+        setToken(ctx, data)
         resolve(data)
       }).catch(err => {
         reject(err)
@@ -31,12 +35,23 @@ export default {
         false
       ).then((data) => {
         if (data) {
-          ctx.commit('setToken', data.access_token)
-          ctx.commit('setReToken', data.refresh_token)
+          setToken(ctx, data)
           resolve()
         }
       }).catch((err) => {
         reject(err)
+      })
+    })
+  },
+
+  // 获取用户信息
+  GetUserInfo () {
+    return new Promise((resolve) => {
+      req(
+        'get',
+        'user/view/1'
+      ).then((data) => {
+        resolve(data)
       })
     })
   }
